@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Free Redeem Code App — VIP Generator</title>
+<title>Free Redeem Code App — VIP Premium Access</title>
 
 <style>
 *{
@@ -18,8 +18,8 @@ body{
     min-height:100vh;
     display:flex;
     justify-content:center;
-    align-items:center;
-    padding:20px;
+    align-items:flex-start;
+    padding:16px 20px 25px;
     background:
         radial-gradient(circle at 10% 10%,#273c75,transparent 35%),
         radial-gradient(circle at 90% 90%,#8e44ad,transparent 35%),
@@ -34,7 +34,7 @@ body{
 }
 
 .premium-top{
-    margin-bottom:9px;
+    margin-bottom:7px;
     color:#f7df91;
     font-size:11px;
     font-weight:900;
@@ -47,32 +47,36 @@ body{
     align-items:center;
     gap:8px;
     padding:10px 19px;
-    margin-bottom:14px;
-    border:1px solid rgba(218,188,91,.65);
+    margin-bottom:9px;
+    border:1px solid rgba(218,188,91,.70);
     border-radius:999px;
     background:linear-gradient(
         135deg,
-        rgba(218,188,91,.20),
-        rgba(45,190,130,.13),
-        rgba(255,255,255,.07)
+        rgba(218,188,91,.25),
+        rgba(247,223,145,.12),
+        rgba(255,255,255,.06)
     );
     color:#f8e7a8;
-    font-size:13px;
+    font-size:12px;
     font-weight:900;
-    letter-spacing:1.4px;
+    letter-spacing:1.5px;
     text-transform:uppercase;
-    box-shadow:0 0 25px rgba(218,188,91,.18);
+    box-shadow:
+        0 0 18px rgba(218,188,91,.22),
+        inset 0 1px 0 rgba(255,255,255,.16);
 }
 
 .vip-badge span{
-    font-size:18px;
+    font-size:17px;
+    color:#f7df91;
+    text-shadow:0 0 10px rgba(247,223,145,.8);
 }
 
 .logo{
-    width:125px;
-    height:125px;
-    margin:0 auto 20px;
-    border-radius:30px;
+    width:118px;
+    height:118px;
+    margin:0 auto 12px;
+    border-radius:27px;
     overflow:hidden;
     background:#fff;
     box-shadow:0 15px 40px rgba(0,0,0,.4);
@@ -85,21 +89,21 @@ body{
 }
 
 .title{
-    font-size:32px;
+    font-size:30px;
     font-weight:800;
-    margin-bottom:8px;
+    margin-bottom:6px;
 }
 
 .subtitle{
     color:#aeb8c5;
-    font-size:14px;
-    margin-bottom:12px;
+    font-size:13px;
+    margin-bottom:7px;
 }
 
-.premium-line{
+.app-store{
     color:#d7deea;
     font-size:11px;
-    margin-bottom:28px;
+    margin-bottom:18px;
 }
 
 .card{
@@ -108,7 +112,7 @@ body{
     backdrop-filter:blur(18px);
     -webkit-backdrop-filter:blur(18px);
     border-radius:24px;
-    padding:28px 22px;
+    padding:21px 20px;
     box-shadow:0 20px 60px rgba(0,0,0,.35);
 }
 
@@ -123,18 +127,40 @@ button{
 }
 
 .unlock-btn{
-    color:#171717;
-    background:linear-gradient(135deg,#f8df7b,#d7aa38);
-    box-shadow:0 10px 30px rgba(218,188,91,.25);
+    color:#fff;
+    background:linear-gradient(
+        135deg,
+        #4285f4,
+        #5964f2,
+        #7c4dff
+    );
+    box-shadow:
+        0 10px 30px rgba(66,133,244,.30),
+        inset 0 1px 0 rgba(255,255,255,.25);
     transition:.2s;
 }
 
 .unlock-btn:hover{
     transform:translateY(-2px);
+    box-shadow:
+        0 14px 35px rgba(66,133,244,.40),
+        inset 0 1px 0 rgba(255,255,255,.25);
 }
 
 .unlock-btn:active{
     transform:scale(.98);
+}
+
+.note{
+    margin-top:14px;
+    color:#d5dce7;
+    font-size:14px;
+    line-height:1.65;
+}
+
+.note strong{
+    color:#f7df91;
+    font-size:15px;
 }
 
 .payment{
@@ -149,7 +175,7 @@ button{
 @keyframes paymentIn{
     from{
         opacity:0;
-        transform:translateY(15px);
+        transform:translateY(12px);
     }
     to{
         opacity:1;
@@ -157,71 +183,62 @@ button{
     }
 }
 
-.payment-title{
-    font-size:22px;
-    font-weight:800;
-    margin-bottom:7px;
-}
-
-.payment-subtitle{
-    color:#aeb8c5;
-    font-size:13px;
-    line-height:1.5;
-    margin-bottom:18px;
-}
-
-.amount{
-    display:inline-block;
-    padding:8px 18px;
-    border-radius:999px;
-    background:rgba(45,190,130,.12);
-    border:1px solid rgba(45,190,130,.3);
-    color:#7ff0bd;
-    font-weight:800;
-    margin-bottom:18px;
-}
-
-.timer{
-    margin-bottom:18px;
-    padding:12px;
-    border-radius:12px;
-    background:rgba(255,70,70,.10);
-    border:1px solid rgba(255,70,70,.22);
-    color:#ff8585;
-    font-size:15px;
-    font-weight:800;
-}
-
-.timer span{
-    font-size:20px;
-}
-
+/* QR SCANNER FIRST */
 .scanner{
     width:100%;
-    max-width:280px;
-    margin:0 auto 18px;
-    padding:8px;
+    max-width:270px;
+    margin:0 auto 14px;
+    padding:7px;
     background:#fff;
-    border-radius:18px;
+    border-radius:17px;
+    box-shadow:0 8px 25px rgba(0,0,0,.28);
 }
 
 .scanner img{
     width:100%;
     display:block;
+    border-radius:11px;
+}
+
+.payment-title{
+    font-size:21px;
+    font-weight:800;
+    margin-bottom:6px;
+}
+
+.payment-subtitle{
+    color:#aeb8c5;
+    font-size:12px;
+    line-height:1.5;
+    margin-bottom:13px;
+}
+
+.timer{
+    margin-bottom:13px;
+    padding:10px;
     border-radius:12px;
+    background:rgba(255,70,70,.10);
+    border:1px solid rgba(255,70,70,.22);
+    color:#ff8585;
+    font-size:14px;
+    font-weight:800;
+}
+
+.timer span{
+    font-size:19px;
 }
 
 .upi-text{
     color:#dce3ed;
-    font-size:13px;
-    line-height:1.6;
-    margin-bottom:18px;
+    font-size:12px;
+    line-height:1.5;
+    margin-bottom:13px;
 }
 
 .security{
     color:#8f9baa;
-    font-size:11px;
-    margin-bottom:18px;
+    font-size:10px;
+    margin-bottom:14px;
 }
 
 .completed-btn{
@@ -243,29 +260,25 @@ button{
 .expired{
     display:none;
     color:#7ff0bd;
-    font-size:14px;
+    font-size:13px;
     font-weight:700;
-    margin-top:15px;
+    margin-top:13px;
 }
 
 .terms-link{
     display:block;
     width:max-content;
-    margin:18px 0 0 auto;
+    margin:16px 0 0 auto;
     color:#9ca8b8;
     font-size:10px;
     text-decoration:underline;
     cursor:pointer;
 }
 
-.terms-link:hover{
-    color:#fff;
-}
-
 .terms-box{
     display:none;
-    margin-top:14px;
-    padding:14px;
+    margin-top:12px;
+    padding:13px;
     text-align:left;
     border-radius:14px;
     background:rgba(0,0,0,.28);
@@ -285,8 +298,8 @@ button{
 
 .terms-text{
     color:#aeb8c5;
-    font-size:11px;
-    line-height:1.6;
+    font-size:10px;
+    line-height:1.55;
 }
 
 .generator{
@@ -299,15 +312,15 @@ button{
 }
 
 .generator-title{
-    font-size:22px;
+    font-size:21px;
     font-weight:800;
-    margin-bottom:8px;
+    margin-bottom:7px;
 }
 
 .generator-subtitle{
     color:#aeb8c5;
-    font-size:13px;
-    margin-bottom:18px;
+    font-size:12px;
+    margin-bottom:16px;
 }
 
 .generate-btn{
@@ -327,19 +340,19 @@ button{
 
 .result{
     display:none;
-    margin-top:22px;
+    margin-top:20px;
 }
 
 .code-box{
     background:rgba(0,0,0,.35);
     border:1px solid rgba(255,255,255,.15);
     border-radius:14px;
-    padding:18px 10px;
-    font-size:19px;
+    padding:17px 10px;
+    font-size:18px;
     font-weight:800;
     letter-spacing:2px;
     word-break:break-all;
-    margin-bottom:12px;
+    margin-bottom:11px;
 }
 
 .copy-btn{
@@ -354,10 +367,10 @@ button{
     color:#fff;
 }
 
-.note{
-    margin-top:18px;
+.generator-note{
+    margin-top:15px;
     color:#8f9baa;
-    font-size:11px;
+    font-size:10px;
     line-height:1.5;
 }
 </style>
@@ -372,8 +385,8 @@ button{
     </div>
 
     <div class="vip-badge">
-        <span>🔒</span>
-        VIP Generator Access
+        <span>✦</span>
+        VIP PREMIUM ACCESS
     </div>
 
     <div class="logo">
@@ -391,8 +404,8 @@ button{
         Unlock the redeem code generator
     </p>
 
-    <div class="premium-line">
-        Secure Access • Fast Processing • Premium Experience
+    <div class="app-store">
+        🎮 App Store • Premium Access
     </div>
 
     <div class="card">
@@ -403,41 +416,37 @@ button{
                 class="unlock-btn"
                 onclick="openPayment()"
             >
-                🔒 Unlock Generator ₹49
+                🔓 UNLOCK GENERATOR — ₹49
             </button>
 
             <div class="note">
-                One-time access to the redeem code generator.
+                <strong>📝 नोट:</strong><br>
+                एक बार ₹49 का भुगतान करके अपना VIP Access अनलॉक करें। इसके बाद बिना किसी अतिरिक्त शुल्क के Ulminited कोड जनरेट करें।
             </div>
 
         </div>
 
         <div id="payment" class="payment">
 
+            <!-- SCANNER AT THE VERY TOP -->
+            <div class="scanner">
+                <img
+                    src="https://www.image2url.com/r2/default/images/1788651660677-0df5d7df-8721-491e-b1d7-fdd0e2d0c8b4.jpeg"
+                    alt="UPI Payment QR"
+                >
+            </div>
+
             <div class="payment-title">
-                🔒 Unlock Redeem Code Generator
+                🔐 Unlock Redeem Code Generator
             </div>
 
             <div class="payment-subtitle">
                 Complete the ₹49 payment to continue.
             </div>
 
-            <div class="amount">
-                ₹49
-            </div>
-
             <div class="timer">
                 Complete payment within
                 <span id="timer">10:00</span>
-            </div>
-
-            <div class="scanner">
-
-                <img
-                    src="https://www.image2url.com/r2/default/images/1788651660677-0df5d7df-8721-491e-b1d7-fdd0e2d0c8b4.jpeg"
-                    alt="UPI Payment QR"
-                >
-
             </div>
 
             <div class="upi-text">
@@ -482,76 +491,22 @@ button{
 
                 <div class="terms-text">
 
-                    1. By proceeding, you acknowledge that you have read,
-                    understood, and voluntarily agreed to these Terms &
-                    Conditions.<br><br>
+                    1. This webpage is a demonstration/entertainment interface.<br><br>
 
-                    2. ₹49 payment is required to continue with this demo
-                    access flow.<br><br>
+                    2. The ₹49 payment interface is part of the demo flow.<br><br>
 
-                    3. A mandatory waiting period of ten (10) minutes will
-                    apply after the payment process is initiated. The
-                    generator will become accessible only after the
-                    countdown has fully expired.<br><br>
+                    3. A ten-minute countdown is shown after opening the payment section.<br><br>
 
-                    4. After completing the payment, the 10-minute timer
-                    will continue running. You must wait until the timer
-                    reaches 00:00.<br><br>
+                    4. The generator becomes available after the countdown reaches 00:00.<br><br>
 
-                    5. Once the 10-minute timer is completed, the
-                    “Unlock Code Generator” button will become available.<br><br>
+                    5. Codes generated by this webpage are random demo codes only.<br><br>
 
-                    6. Clicking the unlock button after the timer ends
-                    will open the generator section.<br><br>
+                    6. Generated codes are not official, valid, or redeemable codes.<br><br>
 
-                    7. The generator is provided solely for demonstration
-                    and entertainment purposes.<br><br>
+                    7. This webpage is not affiliated with Google, Google Play,
+                    Garena, Free Fire, or any other third-party platform.<br><br>
 
-                    8. Any code generated by this webpage is a randomly
-                    generated demo code. It is not an official, valid,
-                    or redeemable code.<br><br>
-
-                    9. The generated code cannot be redeemed on Google Play,
-                    the Play Store, Free Fire, or any other game,
-                    application, platform, or digital service.<br><br>
-
-                    10. This webpage does not verify or confirm real
-                    payments. Any payment-related interface is presented
-                    solely as part of the demonstration experience.<br><br>
-
-                    11. Payment does not guarantee the delivery of any
-                    genuine, official, valid, or redeemable code. The
-                    payment, if made, is associated solely with the
-                    demonstration/entertainment experience described on
-                    this webpage.<br><br>
-
-                    12. No representation or warranty is made that any
-                    generated code will provide access to, unlock,
-                    activate, or provide benefits within any game,
-                    application, platform, or digital service.<br><br>
-
-                    13. By proceeding, you acknowledge and accept that
-                    all generated content is for demonstration and
-                    entertainment purposes only.<br><br>
-
-                    14. By accepting these Terms & Conditions, you confirm
-                    that you understand the demonstration-only nature of
-                    this webpage and agree to use it accordingly.<br><br>
-
-                    15. To the fullest extent permitted by applicable law,
-                    the owner or operator of this webpage shall not be
-                    liable for any misunderstanding or incorrect assumption
-                    regarding the demonstration content presented here.<br><br>
-
-                    16. By proceeding, you confirm that you have understood
-                    the above terms and that you are using this webpage
-                    for its stated demonstration and entertainment
-                    purpose only.<br><br>
-
-                    17. This webpage does not represent or claim to be
-                    affiliated with Google Play, Google, Free Fire,
-                    Garena, or any other third-party game, application,
-                    platform, or digital service.
+                    8. This page does not verify or confirm real payments.
 
                 </div>
 
@@ -605,6 +560,10 @@ button{
 
             </div>
 
+            <div class="generator-note">
+                ⚠️ Generated codes are demo codes and cannot be redeemed.
+            </div>
+
         </div>
 
     </div>
@@ -626,6 +585,15 @@ function openPayment(){
     payment.classList.add("show");
 
     startTimer();
+
+    setTimeout(function(){
+
+        payment.scrollIntoView({
+            behavior:"smooth",
+            block:"start"
+        });
+
+    },100);
 }
 
 function toggleTerms(){
