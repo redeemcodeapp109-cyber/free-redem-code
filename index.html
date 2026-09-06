@@ -1,0 +1,826 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Free Redeem Code App — VIP Generator</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,Helvetica,sans-serif;
+}
+
+body{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:20px;
+    background:
+        radial-gradient(circle at 10% 10%,#273c75,transparent 35%),
+        radial-gradient(circle at 90% 90%,#8e44ad,transparent 35%),
+        #0d1117;
+    color:#fff;
+}
+
+.container{
+    width:100%;
+    max-width:430px;
+    text-align:center;
+}
+
+.premium-top{
+    margin-bottom:9px;
+    color:#f7df91;
+    font-size:11px;
+    font-weight:900;
+    letter-spacing:2px;
+    text-transform:uppercase;
+}
+
+.vip-badge{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    padding:10px 19px;
+    margin-bottom:14px;
+    border:1px solid rgba(218,188,91,.65);
+    border-radius:999px;
+    background:linear-gradient(
+        135deg,
+        rgba(218,188,91,.20),
+        rgba(45,190,130,.13),
+        rgba(255,255,255,.07)
+    );
+    color:#f8e7a8;
+    font-size:13px;
+    font-weight:900;
+    letter-spacing:1.4px;
+    text-transform:uppercase;
+    box-shadow:0 0 25px rgba(218,188,91,.18);
+}
+
+.vip-badge span{
+    font-size:18px;
+}
+
+.logo{
+    width:125px;
+    height:125px;
+    margin:0 auto 20px;
+    border-radius:30px;
+    overflow:hidden;
+    background:#fff;
+    box-shadow:0 15px 40px rgba(0,0,0,.4);
+}
+
+.logo img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+.title{
+    font-size:32px;
+    font-weight:800;
+    margin-bottom:8px;
+}
+
+.subtitle{
+    color:#aeb8c5;
+    font-size:14px;
+    margin-bottom:12px;
+}
+
+.premium-line{
+    color:#d7deea;
+    font-size:11px;
+    margin-bottom:28px;
+}
+
+.card{
+    background:rgba(255,255,255,.08);
+    border:1px solid rgba(255,255,255,.12);
+    backdrop-filter:blur(18px);
+    -webkit-backdrop-filter:blur(18px);
+    border-radius:24px;
+    padding:28px 22px;
+    box-shadow:0 20px 60px rgba(0,0,0,.35);
+}
+
+button{
+    width:100%;
+    border:none;
+    border-radius:14px;
+    padding:16px;
+    font-size:17px;
+    font-weight:800;
+    cursor:pointer;
+}
+
+.unlock-btn{
+    color:#171717;
+    background:linear-gradient(135deg,#f8df7b,#d7aa38);
+    box-shadow:0 10px 30px rgba(218,188,91,.25);
+    transition:.2s;
+}
+
+.unlock-btn:hover{
+    transform:translateY(-2px);
+}
+
+.unlock-btn:active{
+    transform:scale(.98);
+}
+
+.payment{
+    display:none;
+}
+
+.payment.show{
+    display:block;
+    animation:paymentIn .45s ease forwards;
+}
+
+@keyframes paymentIn{
+    from{
+        opacity:0;
+        transform:translateY(15px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+.payment-title{
+    font-size:22px;
+    font-weight:800;
+    margin-bottom:7px;
+}
+
+.payment-subtitle{
+    color:#aeb8c5;
+    font-size:13px;
+    line-height:1.5;
+    margin-bottom:18px;
+}
+
+.amount{
+    display:inline-block;
+    padding:8px 18px;
+    border-radius:999px;
+    background:rgba(45,190,130,.12);
+    border:1px solid rgba(45,190,130,.3);
+    color:#7ff0bd;
+    font-weight:800;
+    margin-bottom:18px;
+}
+
+.timer{
+    margin-bottom:18px;
+    padding:12px;
+    border-radius:12px;
+    background:rgba(255,70,70,.10);
+    border:1px solid rgba(255,70,70,.22);
+    color:#ff8585;
+    font-size:15px;
+    font-weight:800;
+}
+
+.timer span{
+    font-size:20px;
+}
+
+.scanner{
+    width:100%;
+    max-width:280px;
+    margin:0 auto 18px;
+    padding:8px;
+    background:#fff;
+    border-radius:18px;
+}
+
+.scanner img{
+    width:100%;
+    display:block;
+    border-radius:12px;
+}
+
+.upi-text{
+    color:#dce3ed;
+    font-size:13px;
+    line-height:1.6;
+    margin-bottom:18px;
+}
+
+.security{
+    color:#8f9baa;
+    font-size:11px;
+    margin-bottom:18px;
+}
+
+.completed-btn{
+    background:linear-gradient(135deg,#20b978,#15945f);
+    color:#fff;
+    transition:none !important;
+    transform:none !important;
+}
+
+.completed-btn:hover,
+.completed-btn:active,
+.completed-btn:focus{
+    transition:none !important;
+    transform:none !important;
+    animation:none !important;
+    outline:none;
+}
+
+.expired{
+    display:none;
+    color:#7ff0bd;
+    font-size:14px;
+    font-weight:700;
+    margin-top:15px;
+}
+
+.terms-link{
+    display:block;
+    width:max-content;
+    margin:18px 0 0 auto;
+    color:#9ca8b8;
+    font-size:10px;
+    text-decoration:underline;
+    cursor:pointer;
+}
+
+.terms-link:hover{
+    color:#fff;
+}
+
+.terms-box{
+    display:none;
+    margin-top:14px;
+    padding:14px;
+    text-align:left;
+    border-radius:14px;
+    background:rgba(0,0,0,.28);
+    border:1px solid rgba(255,255,255,.12);
+}
+
+.terms-box.show{
+    display:block;
+    animation:paymentIn .25s ease forwards;
+}
+
+.terms-title{
+    font-size:13px;
+    font-weight:800;
+    margin-bottom:8px;
+}
+
+.terms-text{
+    color:#aeb8c5;
+    font-size:11px;
+    line-height:1.6;
+}
+
+.generator{
+    display:none;
+}
+
+.generator.show{
+    display:block;
+    animation:paymentIn .45s ease forwards;
+}
+
+.generator-title{
+    font-size:22px;
+    font-weight:800;
+    margin-bottom:8px;
+}
+
+.generator-subtitle{
+    color:#aeb8c5;
+    font-size:13px;
+    margin-bottom:18px;
+}
+
+.generate-btn{
+    background:linear-gradient(135deg,#4285f4,#7c4dff);
+    color:#fff;
+    box-shadow:0 8px 25px rgba(66,133,244,.25);
+    transition:.2s;
+}
+
+.generate-btn:hover{
+    transform:translateY(-2px);
+}
+
+.generate-btn:active{
+    transform:scale(.98);
+}
+
+.result{
+    display:none;
+    margin-top:22px;
+}
+
+.code-box{
+    background:rgba(0,0,0,.35);
+    border:1px solid rgba(255,255,255,.15);
+    border-radius:14px;
+    padding:18px 10px;
+    font-size:19px;
+    font-weight:800;
+    letter-spacing:2px;
+    word-break:break-all;
+    margin-bottom:12px;
+}
+
+.copy-btn{
+    background:#fff;
+    color:#111827;
+    margin-bottom:10px;
+}
+
+.regenerate-btn{
+    background:transparent;
+    border:1px solid rgba(255,255,255,.2);
+    color:#fff;
+}
+
+.note{
+    margin-top:18px;
+    color:#8f9baa;
+    font-size:11px;
+    line-height:1.5;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="premium-top">
+        ✦ EXCLUSIVE PREMIUM MEMBERS ✦
+    </div>
+
+    <div class="vip-badge">
+        <span>🔒</span>
+        VIP Generator Access
+    </div>
+
+    <div class="logo">
+        <img
+            src="https://www.image2url.com/r2/default/images/1788279495733-ba229f4b-9746-457d-bf65-943635406d9d.png"
+            alt="Redeem Code App"
+        >
+    </div>
+
+    <h1 class="title">
+        Free Redeem Code App
+    </h1>
+
+    <p class="subtitle">
+        Unlock the redeem code generator
+    </p>
+
+    <div class="premium-line">
+        Secure Access • Fast Processing • Premium Experience
+    </div>
+
+    <div class="card">
+
+        <div id="unlockArea">
+
+            <button
+                class="unlock-btn"
+                onclick="openPayment()"
+            >
+                🔒 Unlock Generator ₹49
+            </button>
+
+            <div class="note">
+                One-time access to the redeem code generator.
+            </div>
+
+        </div>
+
+        <div id="payment" class="payment">
+
+            <div class="payment-title">
+                🔒 Unlock Redeem Code Generator
+            </div>
+
+            <div class="payment-subtitle">
+                Complete the ₹49 payment to continue.
+            </div>
+
+            <div class="amount">
+                ₹49
+            </div>
+
+            <div class="timer">
+                Complete payment within
+                <span id="timer">10:00</span>
+            </div>
+
+            <div class="scanner">
+
+                <img
+                    src="https://www.image2url.com/r2/default/images/1788651660677-0df5d7df-8721-491e-b1d7-fdd0e2d0c8b4.jpeg"
+                    alt="UPI Payment QR"
+                >
+
+            </div>
+
+            <div class="upi-text">
+                📱 Scan the QR using your UPI app<br>
+                Google Pay • PhonePe • Paytm • BHIM
+            </div>
+
+            <div class="security">
+                🔐 Secure UPI Payment
+            </div>
+
+            <button
+                id="completedBtn"
+                class="completed-btn"
+                onclick="unlockGenerator()"
+            >
+                🔒 Payment & Unlock Code Generator
+            </button>
+
+            <div
+                class="expired"
+                id="expired"
+            >
+                Timer completed — click the button above to unlock.
+            </div>
+
+            <div
+                class="terms-link"
+                onclick="toggleTerms()"
+            >
+                Terms & Conditions
+            </div>
+
+            <div
+                class="terms-box"
+                id="termsBox"
+            >
+
+                <div class="terms-title">
+                    Terms & Conditions
+                </div>
+
+                <div class="terms-text">
+
+                    1. By proceeding, you acknowledge that you have read,
+                    understood, and voluntarily agreed to these Terms &
+                    Conditions.<br><br>
+
+                    2. ₹49 payment is required to continue with this demo
+                    access flow.<br><br>
+
+                    3. A mandatory waiting period of ten (10) minutes will
+                    apply after the payment process is initiated. The
+                    generator will become accessible only after the
+                    countdown has fully expired.<br><br>
+
+                    4. After completing the payment, the 10-minute timer
+                    will continue running. You must wait until the timer
+                    reaches 00:00.<br><br>
+
+                    5. Once the 10-minute timer is completed, the
+                    “Unlock Code Generator” button will become available.<br><br>
+
+                    6. Clicking the unlock button after the timer ends
+                    will open the generator section.<br><br>
+
+                    7. The generator is provided solely for demonstration
+                    and entertainment purposes.<br><br>
+
+                    8. Any code generated by this webpage is a randomly
+                    generated demo code. It is not an official, valid,
+                    or redeemable code.<br><br>
+
+                    9. The generated code cannot be redeemed on Google Play,
+                    the Play Store, Free Fire, or any other game,
+                    application, platform, or digital service.<br><br>
+
+                    10. This webpage does not verify or confirm real
+                    payments. Any payment-related interface is presented
+                    solely as part of the demonstration experience.<br><br>
+
+                    11. Payment does not guarantee the delivery of any
+                    genuine, official, valid, or redeemable code. The
+                    payment, if made, is associated solely with the
+                    demonstration/entertainment experience described on
+                    this webpage.<br><br>
+
+                    12. No representation or warranty is made that any
+                    generated code will provide access to, unlock,
+                    activate, or provide benefits within any game,
+                    application, platform, or digital service.<br><br>
+
+                    13. By proceeding, you acknowledge and accept that
+                    all generated content is for demonstration and
+                    entertainment purposes only.<br><br>
+
+                    14. By accepting these Terms & Conditions, you confirm
+                    that you understand the demonstration-only nature of
+                    this webpage and agree to use it accordingly.<br><br>
+
+                    15. To the fullest extent permitted by applicable law,
+                    the owner or operator of this webpage shall not be
+                    liable for any misunderstanding or incorrect assumption
+                    regarding the demonstration content presented here.<br><br>
+
+                    16. By proceeding, you confirm that you have understood
+                    the above terms and that you are using this webpage
+                    for its stated demonstration and entertainment
+                    purpose only.<br><br>
+
+                    17. This webpage does not represent or claim to be
+                    affiliated with Google Play, Google, Free Fire,
+                    Garena, or any other third-party game, application,
+                    platform, or digital service.
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div
+            class="generator"
+            id="generator"
+        >
+
+            <div class="generator-title">
+                🔓 Redeem Code Generator
+            </div>
+
+            <div class="generator-subtitle">
+                Generator unlocked.
+            </div>
+
+            <button
+                class="generate-btn"
+                onclick="startGeneration()"
+            >
+                🎁 Generate Redeem Code
+            </button>
+
+            <div
+                class="result"
+                id="result"
+            >
+
+                <div
+                    class="code-box"
+                    id="codeBox"
+                ></div>
+
+                <button
+                    class="copy-btn"
+                    onclick="copyCode()"
+                >
+                    Copy Code
+                </button>
+
+                <button
+                    class="regenerate-btn"
+                    onclick="startGeneration()"
+                >
+                    Re-generate
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script>
+
+function openPayment(){
+
+    const unlockArea =
+        document.getElementById("unlockArea");
+
+    const payment =
+        document.getElementById("payment");
+
+    unlockArea.style.display = "none";
+
+    payment.classList.add("show");
+
+    startTimer();
+}
+
+function toggleTerms(){
+
+    const termsBox =
+        document.getElementById("termsBox");
+
+    termsBox.classList.toggle("show");
+}
+
+let timeLeft = 600;
+let timerInterval = null;
+let timerFinished = false;
+
+function startTimer(){
+
+    clearInterval(timerInterval);
+
+    timeLeft = 600;
+    timerFinished = false;
+
+    updateTimer();
+
+    document.getElementById("expired")
+        .style.display = "none";
+
+    document.getElementById("completedBtn")
+        .textContent =
+        "🔒 Payment & Unlock Code Generator";
+
+    timerInterval = setInterval(function(){
+
+        timeLeft--;
+
+        updateTimer();
+
+        if(timeLeft <= 0){
+
+            timeLeft = 0;
+
+            updateTimer();
+
+            clearInterval(timerInterval);
+
+            timerFinished = true;
+
+            timerCompleted();
+        }
+
+    },1000);
+}
+
+function updateTimer(){
+
+    const minutes =
+        Math.floor(timeLeft / 60);
+
+    const seconds =
+        timeLeft % 60;
+
+    document.getElementById("timer")
+        .textContent =
+        String(minutes).padStart(2,"0")
+        + ":" +
+        String(seconds).padStart(2,"0");
+}
+
+function timerCompleted(){
+
+    const button =
+        document.getElementById("completedBtn");
+
+    button.textContent =
+        "🔓 Unlock Code Generator";
+
+    document.getElementById("expired")
+        .style.display = "block";
+}
+
+function unlockGenerator(){
+
+    if(timeLeft > 0 || !timerFinished){
+        return;
+    }
+
+    clearInterval(timerInterval);
+
+    document.getElementById("payment")
+        .style.display = "none";
+
+    document.getElementById("generator")
+        .classList.add("show");
+}
+
+const characters =
+    "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+
+function generateRandomCode(){
+
+    let code = "";
+
+    for(let i = 0; i < 16; i++){
+
+        code += characters.charAt(
+            Math.floor(
+                Math.random() *
+                characters.length
+            )
+        );
+
+    }
+
+    return code;
+}
+
+function startGeneration(){
+
+    const result =
+        document.getElementById("result");
+
+    const codeBox =
+        document.getElementById("codeBox");
+
+    const generateBtn =
+        document.querySelector(".generate-btn");
+
+    result.style.display = "none";
+
+    generateBtn.style.display = "none";
+
+    setTimeout(function(){
+
+        codeBox.textContent =
+            generateRandomCode();
+
+        result.style.display = "block";
+
+    },1000);
+}
+
+function copyCode(){
+
+    const code =
+        document.getElementById("codeBox")
+        .textContent;
+
+    const button =
+        document.querySelector(".copy-btn");
+
+    if(navigator.clipboard){
+
+        navigator.clipboard
+            .writeText(code)
+            .then(function(){
+
+                button.textContent =
+                    "Copied ✓";
+
+                setTimeout(function(){
+
+                    button.textContent =
+                        "Copy Code";
+
+                },1500);
+
+            });
+
+    }else{
+
+        const textarea =
+            document.createElement("textarea");
+
+        textarea.value = code;
+
+        document.body.appendChild(textarea);
+
+        textarea.select();
+
+        document.execCommand("copy");
+
+        textarea.remove();
+
+        button.textContent =
+            "Copied ✓";
+
+        setTimeout(function(){
+
+            button.textContent =
+                "Copy Code";
+
+        },1500);
+    }
+}
+
+</script>
+
+</body>
+</html>
