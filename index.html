@@ -374,14 +374,63 @@ button{
     line-height:1.5;
 }
 
-.access-info{margin-top:18px;padding:15px;text-align:left;border-radius:16px;background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.10)}
-.access-title{margin-bottom:12px;color:#f7df91;font-size:12px;font-weight:800;letter-spacing:1px;text-transform:uppercase}
-.access-step{display:flex;align-items:center;gap:11px;padding:9px 0;border-top:1px solid rgba(255,255,255,.07)}
-.access-step:first-of-type{border-top:none}
-.access-step>span{width:29px;height:29px;display:flex;align-items:center;justify-content:center;flex:none;border-radius:9px;background:rgba(247,223,145,.10);color:#f7df91;font-size:10px;font-weight:800}
-.access-step b{display:block;color:#eef2f7;font-size:12px;margin-bottom:2px}
-.access-step small{display:block;color:#8f9baa;font-size:10px;line-height:1.35}
+.access-info{
+    margin-top:18px;
+    padding:15px;
+    text-align:left;
+    border-radius:16px;
+    background:rgba(255,255,255,.045);
+    border:1px solid rgba(255,255,255,.10);
+}
 
+.access-title{
+    margin-bottom:12px;
+    color:#f7df91;
+    font-size:12px;
+    font-weight:800;
+    letter-spacing:1px;
+    text-transform:uppercase;
+}
+
+.access-step{
+    display:flex;
+    align-items:center;
+    gap:11px;
+    padding:9px 0;
+    border-top:1px solid rgba(255,255,255,.07);
+}
+
+.access-step:first-of-type{
+    border-top:none;
+}
+
+.access-step>span{
+    width:29px;
+    height:29px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    flex:none;
+    border-radius:9px;
+    background:rgba(247,223,145,.10);
+    color:#f7df91;
+    font-size:10px;
+    font-weight:800;
+}
+
+.access-step b{
+    display:block;
+    color:#eef2f7;
+    font-size:12px;
+    margin-bottom:2px;
+}
+
+.access-step small{
+    display:block;
+    color:#8f9baa;
+    font-size:10px;
+    line-height:1.35;
+}
 </style>
 </head>
 
@@ -425,29 +474,50 @@ button{
                 class="unlock-btn"
                 onclick="openPayment()"
             >
-                🔓 UNLOCK GENERATOR — ₹49
+                🔓 UNLOCK GENERATOR — ₹99
             </button>
 
             <div class="note">
                 <strong>📝 नोट:</strong><br>
-                एक बार ₹49 का भुगतान करके अपना VIP Access अनलॉक करें। इसके बाद बिना किसी अतिरिक्त शुल्क के Ulminited कोड जनरेट करें।
+                एक बार ₹99 का भुगतान करके अपना VIP Access अनलॉक करें। इसके बाद बिना किसी अतिरिक्त शुल्क के Ulminited कोड जनरेट करें।
             </div>
 
             <div class="access-info">
                 <div class="access-title">✨ Quick Access</div>
-                <div class="access-step"><span>01</span><div><b>Unlock Access</b><small>Continue to the access section</small></div></div>
-                <div class="access-step"><span>02</span><div><b>Complete Payment</b><small>Use the payment option shown below</small></div></div>
-                <div class="access-step"><span>03</span><div><b>Generate Code</b><small>Access the generator after unlock</small></div></div>
+
+                <div class="access-step">
+                    <span>01</span>
+                    <div>
+                        <b>Unlock Access</b>
+                        <small>Continue to the access section</small>
+                    </div>
+                </div>
+
+                <div class="access-step">
+                    <span>02</span>
+                    <div>
+                        <b>Complete Payment</b>
+                        <small>Use the payment option shown below</small>
+                    </div>
+                </div>
+
+                <div class="access-step">
+                    <span>03</span>
+                    <div>
+                        <b>Generate Code</b>
+                        <small>Access the generator after unlock</small>
+                    </div>
+                </div>
             </div>
 
         </div>
 
         <div id="payment" class="payment">
 
-            <!-- SCANNER AT THE VERY TOP -->
+            <!-- NEW QR SCANNER IMAGE -->
             <div class="scanner">
                 <img
-                    src="https://www.image2url.com/r2/default/images/1788651660677-0df5d7df-8721-491e-b1d7-fdd0e2d0c8b4.jpeg"
+                    src="https://www.image2url.com/r2/default/images/1789173934130-e6a5ec4e-3abc-4c49-842a-02924c32218c.jpeg"
                     alt="UPI Payment QR"
                 >
             </div>
@@ -457,7 +527,7 @@ button{
             </div>
 
             <div class="payment-subtitle">
-                Complete the ₹49 payment to continue.
+                Complete the ₹99 payment to continue.
             </div>
 
             <div class="timer">
@@ -509,7 +579,7 @@ button{
 
                     1. This webpage is a demonstration/entertainment interface.<br><br>
 
-                    2. The ₹49 payment interface is part of the demo flow.<br><br>
+                    2. The ₹99 payment interface is part of the demo flow.<br><br>
 
                     3. A ten-minute countdown is shown after opening the payment section.<br><br>
 
@@ -612,6 +682,7 @@ function openPayment(){
     },100);
 }
 
+
 function toggleTerms(){
 
     const termsBox =
@@ -620,9 +691,11 @@ function toggleTerms(){
     termsBox.classList.toggle("show");
 }
 
+
 let timeLeft = 600;
 let timerInterval = null;
 let timerFinished = false;
+
 
 function startTimer(){
 
@@ -662,6 +735,7 @@ function startTimer(){
     },1000);
 }
 
+
 function updateTimer(){
 
     const minutes =
@@ -677,6 +751,7 @@ function updateTimer(){
         String(seconds).padStart(2,"0");
 }
 
+
 function timerCompleted(){
 
     const button =
@@ -688,6 +763,7 @@ function timerCompleted(){
     document.getElementById("expired")
         .style.display = "block";
 }
+
 
 function unlockGenerator(){
 
@@ -704,8 +780,10 @@ function unlockGenerator(){
         .classList.add("show");
 }
 
+
 const characters =
     "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+
 
 function generateRandomCode(){
 
@@ -724,6 +802,7 @@ function generateRandomCode(){
 
     return code;
 }
+
 
 function startGeneration(){
 
@@ -749,6 +828,7 @@ function startGeneration(){
 
     },1000);
 }
+
 
 function copyCode(){
 
